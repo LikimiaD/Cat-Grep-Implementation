@@ -36,7 +36,7 @@ word_pattern = re.compile(r'\w+')
 for test_file in test_files:
     with open(os.path.join(test_files_dir, test_file), 'r') as f:
         content = f.read()
-        words = word_pattern.findall(content)  # Извлекаем слова с помощью регулярного выражения
+        words = word_pattern.findall(content)
         all_words.update(words)
         
 num_words_to_select = min(2, len(all_words))
