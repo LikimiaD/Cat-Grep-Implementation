@@ -19,7 +19,6 @@ typedef struct Mode {
 } Mode;
 
 void fill_struct(struct Mode* ptr);
-void print_struct(struct Mode ptr);  // Debug
 int input_flags(struct Mode* ptr, char buffer[]);
 int switch_flags(struct Mode* ptr, char sym);
 int print_file(struct Mode* mods, char filename[], char** pattern_arr,
@@ -225,10 +224,9 @@ int* find_word_handle_o(char buffer[], char word[], int mod_i, int* size) {
   char buffer_sym = 0;
   char word_sym = 0;
 
-  // dynamically allocate an array
   int* start_indices = malloc(buffer_len * sizeof(int));
 
-  *size = 0;  // size of the array
+  *size = 0;
 
   for (int i = 0; i < buffer_len; i++) {
     buffer_sym = buffer[i];
@@ -354,11 +352,4 @@ int print_file(struct Mode* mods, char filename[], char** pattern_arr,
   free(line);  // Clean Dynamic line
   fclose(ptr);
   return status;
-}
-
-void print_struct(struct Mode ptr) {
-  printf(
-      "l -> %d\nc -> %d\ne -> %d\nf -> %d\nh -> %d\ni -> %d\nn -> %d\no -> "
-      "%d\ns -> %d\nv -> %d\n",
-      ptr.l, ptr.c, ptr.e, ptr.f, ptr.h, ptr.i, ptr.n, ptr.o, ptr.s, ptr.v);
 }

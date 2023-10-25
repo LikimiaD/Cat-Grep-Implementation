@@ -18,7 +18,6 @@ typedef struct Mode {
 
 void struct_fill(struct Mode* mods);
 void struct_change_value(struct Mode* mods, char sym);
-void print_struct(struct Mode* mods);  // Debug
 int print_file(char filename[], struct Mode mods);
 int check_mode(struct Mode* mods, char buffer[]);
 int handle_space_lines(struct Mode mods, char* line, int* space);
@@ -220,9 +219,4 @@ int print_file(char filename[], struct Mode mods) {
     fclose(ptr);
   }
   return status;
-}
-
-void print_struct(struct Mode* mods) {
-  printf("b -> %d\ne -> %d\nn -> %d\ns -> %d\nt -> %d\nv -> %d\n", mods->b,
-         mods->e, mods->n, mods->s, mods->t, mods->v);
 }
